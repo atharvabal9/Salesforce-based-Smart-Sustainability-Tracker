@@ -1,0 +1,17 @@
+<apex:page controller="EmissionController">
+    <apex:form>
+        <apex:pageBlock title="Emission Details">
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!emission.Activity_Type__c}"/>
+                <apex:inputField value="{!emission.Quantity__c}"/>
+                <apex:inputField value="{!emission.Unit__c}"/>
+                <apex:inputField value="{!emission.Date__c}"/>
+                <apex:outputField value="{!emission.Estimated_Emission__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!saveEmission}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

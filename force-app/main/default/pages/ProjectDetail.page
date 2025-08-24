@@ -1,0 +1,60 @@
+<apex:page controller="ProjectController" sidebar="false" showHeader="true">
+    <apex:sectionHeader title="Project Details" subtitle="{!project.Name}"/>
+
+    <apex:form>
+
+        <!-- Project Summary -->
+        <apex:pageBlock title="Summary">
+            <apex:pageBlockSection columns="2">
+              
+                <apex:outputField label="Target Emissions" value="{!project.Target_Emission__c}"/>
+                <apex:outputField label="Emission Covered" value="{!project.Emission_Covered__c}"/>
+                <apex:outputText value="Carbon Balance: {!carbonBalance} kg"/>
+            </apex:pageBlockSection>
+         </apex:pageBlock>
+            <!-- Carbon Summary -->
+            <apex:pageBlock title="Summary">
+    <apex:pageBlockSection columns="2">
+        
+        <apex:outputField label="Target Emissions" value="{!project.Target_Emission__c}"/>
+        <apex:outputField label="Emission Covered" value="{!project.Emission_Covered__c}"/>
+        <apex:outputText label="Carbon Balance" value="{!carbonBalance}"/>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+
+
+        <!-- Emissions Table -->
+        <apex:pageBlock title="Emissions">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Add New Emission" action="{!URLFOR($Page.EmissionDetail)}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable value="{!emissions}" var="e">
+                <apex:column value="{!e.Activity_Type__c}" headerValue="Activity"/>
+                <apex:column value="{!e.Quantity__c}" headerValue="Quantity"/>
+                <apex:column value="{!e.Estimated_Emission__c}" headerValue="Estimated Emission"/>
+                <apex:column value="{!e.Date__c}" headerValue="Date"/>
+                <apex:column headerValue="Action">
+                    <apex:commandLink value="View/Edit" action="{!URLFOR($Page.EmissionDetail, null, [id=e.Id])}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+        <!-- Offsets Table -->
+        <apex:pageBlock title="Offsets">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Add New Offset" action="{!URLFOR($Page.OffsetDetail)}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable value="{!offsets}" var="o">
+                <apex:column value="{!o.Type__c}" headerValue="Type"/>
+                <apex:column value="{!o.Amount__c}" headerValue="Amount"/>
+                <apex:column value="{!o.Date__c}" headerValue="Date"/>
+                <apex:column headerValue="Action">
+                    <apex:commandLink value="View/Edit" action="{!URLFOR($Page.OffsetDetail, null, [id=o.Id])}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

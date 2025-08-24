@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Project Details" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <p><b>Project Name:</b> {project.Name}</p>
+            <p><b>Description:</b> {project.Description__c}</p>
+            <p><b>Status:</b> {project.Status__c}</p>
+            <p><b>Start Date:</b> {project.Start_Date__c}</p>
+            <p><b>End Date:</b> {project.End_Date__c}</p>
+            <p><b>Total Emissions:</b> {project.Target_Emission__c} kg CO₂e</p>
+            <p><b>Total Offsets:</b> {project.Emission_Covered__c} kg CO₂e</p>
+            <p><b>Carbon Balance:</b> {carbonBalance} kg CO₂e</p>
+        </div>
+
+        <template if:true={emissions}>
+            <lightning-datatable
+                key-field="Id"
+                data={emissions}
+                columns={emissionColumns}>
+            </lightning-datatable>
+        </template>
+
+        <template if:true={offsets}>
+            <lightning-datatable
+                key-field="Id"
+                data={offsets}
+                columns={offsetColumns}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
+
