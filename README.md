@@ -1,18 +1,106 @@
-# Salesforce DX Project: Next Steps
+# Smart Sustainability Tracker
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+A Salesforce-based application to track, manage, and visualize carbon emissions and offsets for sustainability projects. Built with **Apex**, **Visualforce**, **Lightning Web Components (LWC)**, **Flows**, and **Reports & Dashboards**.
 
-## How Do You Plan to Deploy Your Changes?
+---
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 📝 Features
 
-## Configure Your Salesforce DX Project
+- **Project Management**
+  - Create and track sustainability projects
+  - View project details, status, and dates
+  - Calculate carbon balance (emissions minus offsets)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+- **Emission Tracking**
+  - Record emission events (e.g., travel, energy, food, waste)
+  - Automatic calculation using emission factors
+  - Display emissions in datatables and charts
 
-## Read All About It
+- **Offset Management**
+  - Track offset actions like tree planting or carbon credits
+  - Automatic roll-up to project carbon balance
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- **Visualizations**
+  - Reports and Dashboards for project-wise emissions and offsets
+  - Charts comparing emissions vs offsets
+
+- **User Interface**
+  - Lightning Web Components (LWC) for modern UX
+  - Visualforce pages for detailed project and emission views
+  - Form components to add emissions and offsets easily
+
+- **Automation**
+  - Apex triggers to auto-update project totals
+  - Flows for notifications and validations
+
+---
+
+## 🛠 Tech Stack
+
+- Salesforce Platform (Salesforce DX)
+- Apex Classes & Triggers
+- Lightning Web Components (LWC)
+- Visualforce Pages
+- Salesforce Reports & Dashboards
+- Flows for automation
+
+---
+
+## 📂 Directory Structure
+
+force-app/
+├─ main/
+│ ├─ default/
+│ │ ├─ classes/ # Apex classes & triggers
+│ │ ├─ lwc/ # Lightning Web Components
+│ │ ├─ pages/ # Visualforce pages
+│ │ ├
+│ │ └─ objects/ # Custom objects & fields
+
+yaml
+Copy
+Edit
+
+---
+
+## 🚀 Deployment
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/Smart-Sustainability-Tracker.git
+Deploy to your Salesforce org using Salesforce CLI:
+
+bash
+Copy
+Edit
+sfdx force:source:deploy -p force-app/main/default
+Assign permission sets as required (if any).
+
+Add Lightning Web Components to Lightning pages via App Builder.
+
+Run test classes to validate Apex logic:
+
+bash
+Copy
+Edit
+sfdx force:apex:test:run --wait 10
+⚡ Usage
+Open the Project Detail page to view project data, emissions, offsets, and carbon balance.
+
+Add new emissions or offsets using the provided LWC forms.
+
+Visualize emissions vs offsets using dashboards and charts.
+
+📌 Notes
+Ensure all custom fields and objects are deployed before running LWC.
+
+Apex triggers must be active for automatic calculation of project totals.
+
+Test classes cover all major functionality; run them to verify deployment.
+
+📝 Author
+Atharva Abhay Bal
+
+GitHub: https://github.com/atharvabal9
+
+Email: atharvabal9@gmail.com
